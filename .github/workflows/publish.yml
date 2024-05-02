@@ -1,52 +1,60 @@
-# File: .github/workflows/publish.yml
-name: publish-to-github-pages
-on:
-  push:
-    branches:
-      - main
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
+name: build-test-deploy
+on: push
+jobs: 
   build:
     runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧
-        uses: ./.github/workflows/setup-node
-
-      - name: Setup Pages ⚙️
-        uses: actions/configure-pages@v4
+    steps: 
+      - name: checkout repo
+        uses: actions/checkout@v3
+      - name: use node.js
+        uses: actions/setup-node@v3
         with:
-          static_site_generator: next
+          node-version: '18.x'
+      - run: npm install
+      - run: npm run build 
 
-      - name: Build with Next.js 🏗️
-        run: npx next build
-
-      - name: Upload artifact 📡
-        uses: actions/upload-pages-artifact@v3
+  test: 
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout repo
+        uses: actions/checkout@v3
+      - name: use node.js
+        uses: actions/setup-node@v3
         with:
-          path: ./out
+          node-version: '18.x'
+      - run: npm install
+      - run: npm test
 
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
+    needs: test
     runs-on: ubuntu-latest
-    needs: build
-
+    environment: 
+      name: production
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions: 
+      contents: write
+      pages: write
+      id-token: write
     steps:
-      - name: Publish to GitHub Pages 🚀
+      - name: checkout repo
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: use node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - name: configure github pages
+        uses: actions/configure-pages@v3
+        with:
+          static_site_generator: next
+      - run: npm install
+      - run: npm run build 
+      - name: upload artifacts
+        uses: actions/upload-pages-artifact@v1
+        with: 
+          path: "./out"
+      - name: deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
