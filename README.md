@@ -18,6 +18,39 @@ Frequency Craft is a web application that allows users to generate frequency dis
 
 To run Frequency Craft locally, follow these steps:
 
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/SharafatKarim/FrequencyCraft
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+    cd FrequencyCraft
+    ```
+
+3. Install the dependencies:
+
+    ```bash
+    npm install
+    ```
+
+4. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+Check the console for the URL of the local server and open it in your browser.
+
+## Usage
+
+1. Input Data: Enter the frequency data in the input field. Each row should contain a class interval and its corresponding frequency separated by a comma. For example:
+
+```text
+32 27 19 40 31 17 15 18 21 27 38 15 33 34 29 26 16 25 33 36 24 22 26 19 36 18 25 20 25 25 31 24 16 28 30 24 29 42 29 28 26 27 47 43 22 25 28 22 24 23
+```
 
 ## Contributors
 
