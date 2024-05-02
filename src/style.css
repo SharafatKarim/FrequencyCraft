@@ -1,0 +1,12 @@
+#acquisition {
+    visibility: hidden;
+}
+
+.initially-hidden {
+    visibility: hidden;
+}
+
+.btn {
+    padding: 10px;
+    margin: 10 0px;
+}

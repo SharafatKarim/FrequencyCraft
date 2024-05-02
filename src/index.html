@@ -11,7 +11,9 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Frequency Craft | Frequency distribution and graph generator</a>
+            <a class="navbar-brand" href="#">Frequency Craft</a>
+            <!-- subtitle -->
+            <p class="navbar-text">Frequency distribution and graph generator</p>
             <a href="https://github.com/SharafatKarim/FrequencyCraft"><button class="btn btn-outline-success"
                     type="submit">GitHub repo</button></a>
         </div>
@@ -20,13 +22,27 @@
     <div class="container">
         <h2>Input Data</h2>
         <div class="mb-3">
-            <label for="inputArea" class="form-label">Enter your input frequencies:</label>
-            <textarea class="form-control" id="adjMatInp" rows="4"
+            <label for="numInputArea" class="form-label">Enter your input frequencies:</label>
+            <textarea class="form-control" id="numInputArea" rows="4"
                 placeholder="An example 🎨&#10;2 3 1&#10;6 5 3&#10;2 1 9">
             </textarea>
 
-            <label for="graphType" class="form-label">Select graph type:</label>
-            <select class="form-select" id="graphType">
+            <button class="btn btn-success" id="myButton">Analyze data</button>
+            <button class="btn btn-danger" id="resetGraph">Reset graph</button>
+            <button class="btn btn-primary" onclick="location.reload()">Refresh</button>
+        </div>
+
+        <div class="container text-center">
+            <div class="row align-items-end">
+                <div class="col" id="parentAdjMatTable">
+                    <!-- --------- table 01 --------- -->
+                    <h2 class="initially-hidden">Frequency distribution table</h2>
+                    <div id="freqTable"></div>
+                </div>
+            </div>
+
+            <label for="graphType" class="form-label initially-hidden">Select graph type:</label>
+            <select class="form-select initially-hidden" id="graphType">
                 <option value="bar">Bar Chart</option>
                 <option value="bubble">Bubble Chart</option>
                 <option value="line">Line Chart</option>
@@ -36,20 +52,6 @@
                 <option value="radar">Radar Chart</option>
                 <option value="scatter">Scatter Chart</option>
             </select>
-        </div>
-
-        <button class="btn btn-success" id="myButton">Analyze data</button>
-        <button class="btn btn-danger" id="resetGraph">Reset graph</button>
-        <button class="btn btn-primary" onclick="location.reload()">Refresh</button>
-    </div>
-
-    <div class="container text-center">
-        <div class="row align-items-end">
-            <div class="col" id="parentAdjMatTable">
-                <!-- --------- table 01 --------- -->
-                <h2 id="freqTitle" style="visibility: hidden;">Frequency distribution table</h2>
-                <div id="freqTable"></div>
-            </div>
         </div>
         <div><canvas id="acquisitions"></canvas></div>
     </div>
