@@ -32,3 +32,4 @@ out/
 # Miscellaneous
 .DS_Store
 Thumbs.db
+.cache/
