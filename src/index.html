@@ -28,8 +28,7 @@
             </textarea>
 
             <button class="btn btn-success" id="myButton">Analyze data</button>
-            <button class="btn btn-danger" id="resetGraph">Reset graph</button>
-            <button class="btn btn-primary" onclick="location.reload()">Refresh</button>
+            <button class="btn btn-danger" onclick="location.reload()">Reset</button>
         </div>
 
         <div class="container text-center">
@@ -44,13 +43,11 @@
             <label for="graphType" class="form-label initially-hidden">Select graph type:</label>
             <select class="form-select initially-hidden" id="graphType">
                 <option value="bar">Bar Chart</option>
-                <option value="bubble">Bubble Chart</option>
                 <option value="line">Line Chart</option>
                 <option value="pie">Pie Chart</option>
                 <option value="doughnut">Doughnut Chart</option>
                 <option value="polarArea">Polar Area Chart</option>
                 <option value="radar">Radar Chart</option>
-                <option value="scatter">Scatter Chart</option>
             </select>
         </div>
         <div><canvas id="acquisitions"></canvas></div>
