@@ -48,6 +48,8 @@ document.getElementById('myButton').addEventListener('click', () => {
         elements[i].style.visibility = 'visible';
     }
 
+    document.getElementById('horizontal-gap').style.marginBottom = '0px';
+
     var string = document.getElementById('numInputArea').value;
     console.log("input text :\n", string);
 
