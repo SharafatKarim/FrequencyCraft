@@ -52,6 +52,8 @@ Check the console for the URL of the local server and open it in your browser.
 32 27 19 40 31 17 15 18 21 27 38 15 33 34 29 26 16 25 33 36 24 22 26 19 36 18 25 20 25 25 31 24 16 28 30 24 29 42 29 28 26 27 47 43 22 25 28 22 24 23
 ```
 
+2. Generate Frequency Distribution: Click the "Analyze data" button to calculate the frequency distribution based on the input data. The frequency distribution table will be displayed below the input field.
+
 ## Contributors
 
 [![SharafatKarim's Profilator](https://profilator.deno.dev/SharafatKarim?v=1.0.0.alpha.4)](https://github.com/SharafatKarim)
