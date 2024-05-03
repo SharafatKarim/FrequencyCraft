@@ -1,6 +1,6 @@
 # Frequency Craft
 
-Frequency distribution and graph generator | [Live Demo](#TO-DO)
+Frequency distribution and graph generator | [Live Demo](http://sharafat.is-a.dev/FrequencyCraft/)
 
 ![FrequencyCraft](https://socialify.git.ci/SharafatKarim/FrequencyCraft/image?description=1&descriptionEditable=Frequency%20Craft%20is%20a%20web%20application%20that%20allows%20users%20to%20generate%20frequency%20distributions%20and%20corresponding%20graphs%20based%20on%20input%20data.&font=Bitter&forks=1&issues=1&language=1&name=1&pattern=Formal%20Invitation&pulls=1&stargazers=1&theme=Auto)
 
