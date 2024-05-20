@@ -79,11 +79,16 @@ function generateTable(numArray) {
 
     var classInterval = [];
     var classFrequency = [];
+    var midValue = [];
     var classCumulativeFrequency = [];
+
+    var FiUi = [];
+    var total_FiUi = 0;
 
     for (let i = 0; i < numOfClass; i++) {
         classInterval.push([min + (i * interval), min + (i + 1) * interval]);
         classFrequency.push(0);
+        midValue.push((classInterval[i][0] + classInterval[i][1]) / 2);
         classCumulativeFrequency.push(0);
     }
 
@@ -102,6 +107,9 @@ function generateTable(numArray) {
     for (let i = 0; i < numOfClass; i++) {
         data.push({ interval: classInterval[i][0] + '-' + classInterval[i][1], frequency: classFrequency[i] });
         classCumulativeFrequency[i] = classFrequency[i] + (i > 0 ? classCumulativeFrequency[i - 1] : 0);
+
+        FiUi.push(midValue[i] * classFrequency[i]);
+        total_FiUi += FiUi[i];
     }
     console.log("classCumulativeFrequency :\n", classCumulativeFrequency);
     let total = classCumulativeFrequency[numOfClass - 1];
@@ -121,7 +129,13 @@ function generateTable(numArray) {
     th.innerHTML = 'Class Interval';
     tr.appendChild(th);
     th = document.createElement('th');
-    th.innerHTML = 'Frequency or count';
+    th.innerHTML = 'Frequency (f<sub>i</sub>)';
+    tr.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Mid Value (x<sub>i</sub>)';
+    tr.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'f<sub>i</sub>u<sub>i</sub>';
     tr.appendChild(th);
     th = document.createElement('th');
     th.innerHTML = 'Cumulative Frequency (ascending)';
@@ -140,13 +154,38 @@ function generateTable(numArray) {
         td.innerHTML = classFrequency[i];
         tr.appendChild(td);
         td = document.createElement('td');
+        td.innerHTML = midValue[i];
+        tr.appendChild(td);
+        td = document.createElement('td');
+        td.innerHTML = FiUi[i];
+        tr.appendChild(td);
+        td = document.createElement('td');
         td.innerHTML = classCumulativeFrequency[i];
         tr.appendChild(td);
         td = document.createElement('td');
-        td.innerHTML = total - (i >= 1 ? classCumulativeFrequency[i-1] : 0);
+        td.innerHTML = total - (i >= 1 ? classCumulativeFrequency[i - 1] : 0);
         tr.appendChild(td);
         tbody.appendChild(tr);
     }
     table.appendChild(tbody);
     freqTable.appendChild(table);
+
+    // Measurements
+    var measurements = document.getElementById("measurements");
+    while (measurements.hasChildNodes()) {
+        measurements.removeChild(measurements.childNodes[0]);
+    }
+
+    var paragraph = document.createElement('p');
+    paragraph.className = 'text-start fw-bold';
+
+    var string = "Total numbers: " + total + "<br>";
+    string += "Number of classes: " + numOfClass + "<br>";
+    string += "Range: " + range + "<br>";
+    string += "Interval: " + interval + "<br><br>";
+    string += "Total f<sub>i</sub>u<sub>i</sub>: " + total_FiUi + "<br>";
+    string += "Arithmetic Mean: " + total_FiUi / total + "<br>";
+
+    paragraph.innerHTML = string;
+    measurements.appendChild(paragraph);
 };
