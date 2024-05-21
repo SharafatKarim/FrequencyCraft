@@ -82,8 +82,12 @@ function generateTable(numArray) {
     var midValue = [];
     var classCumulativeFrequency = [];
 
-    var FiUi = [];
-    var total_FiUi = 0;
+    var FiXi = [];
+    var total_FiXi = 0;
+    var FiLogXi = [];
+    var total_FiLogXi = 0;
+    var Fi_BY_Xi = [];
+    var total_Fi_BY_Xi = 0;
 
     for (let i = 0; i < numOfClass; i++) {
         classInterval.push([min + (i * interval), min + (i + 1) * interval]);
@@ -108,8 +112,12 @@ function generateTable(numArray) {
         data.push({ interval: classInterval[i][0] + '-' + classInterval[i][1], frequency: classFrequency[i] });
         classCumulativeFrequency[i] = classFrequency[i] + (i > 0 ? classCumulativeFrequency[i - 1] : 0);
 
-        FiUi.push(midValue[i] * classFrequency[i]);
-        total_FiUi += FiUi[i];
+        FiXi.push(midValue[i] * classFrequency[i]);
+        total_FiXi += FiXi[i];
+        FiLogXi.push(classFrequency[i] * Math.log(midValue[i]));
+        total_FiLogXi += FiLogXi[i];
+        Fi_BY_Xi.push(classFrequency[i] / midValue[i]);
+        total_Fi_BY_Xi += Fi_BY_Xi[i];
     }
     console.log("classCumulativeFrequency :\n", classCumulativeFrequency);
     let total = classCumulativeFrequency[numOfClass - 1];
@@ -135,7 +143,13 @@ function generateTable(numArray) {
     th.innerHTML = 'Mid Value (x<sub>i</sub>)';
     tr.appendChild(th);
     th = document.createElement('th');
-    th.innerHTML = 'f<sub>i</sub>u<sub>i</sub>';
+    th.innerHTML = 'f<sub>i</sub>x<sub>i</sub>';
+    tr.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'f<sub>i</sub>log(x<sub>i</sub>)';
+    tr.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'f<sub>i</sub>/x<sub>i</sub>';
     tr.appendChild(th);
     th = document.createElement('th');
     th.innerHTML = 'Cumulative Frequency (ascending)';
@@ -157,7 +171,13 @@ function generateTable(numArray) {
         td.innerHTML = midValue[i];
         tr.appendChild(td);
         td = document.createElement('td');
-        td.innerHTML = FiUi[i];
+        td.innerHTML = FiXi[i];
+        tr.appendChild(td);
+        td = document.createElement('td');
+        td.innerHTML = FiLogXi[i].toPrecision(4);
+        tr.appendChild(td);
+        td = document.createElement('td');
+        td.innerHTML = Fi_BY_Xi[i].toPrecision(4);
         tr.appendChild(td);
         td = document.createElement('td');
         td.innerHTML = classCumulativeFrequency[i];
@@ -183,8 +203,12 @@ function generateTable(numArray) {
     string += "Number of classes: " + numOfClass + "<br>";
     string += "Range: " + range + "<br>";
     string += "Interval: " + interval + "<br><br>";
-    string += "Total f<sub>i</sub>u<sub>i</sub>: " + total_FiUi + "<br>";
-    string += "Arithmetic Mean: " + total_FiUi / total + "<br>";
+    string += "Total f<sub>i</sub>x<sub>i</sub>: " + total_FiXi + "<br>";
+    string += "Arithmetic Mean: " + total_FiXi / total + "<br>";
+    string += "Total f<sub>i</sub>log(x<sub>i</sub>): " + total_FiLogXi + "<br>";
+    string += "Geometric Mean: " + Math.exp(total_FiLogXi / total) + "<br>";
+    string += "Total f<sub>i</sub>/x<sub>i</sub>: " + total_Fi_BY_Xi + "<br>";
+    string += "Harmonic Mean: " + total / total_Fi_BY_Xi + "<br>";
 
     paragraph.innerHTML = string;
     measurements.appendChild(paragraph);
