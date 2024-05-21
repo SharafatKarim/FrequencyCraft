@@ -199,14 +199,14 @@ function generateTable(numArray) {
     var paragraph = document.createElement('p');
     paragraph.className = 'text-start fw-bold';
 
-    var string = "Total numbers: " + total + "<br>";
+    var string = "Total numbers (N): " + total + "<br>";
     string += "Number of classes: " + numOfClass + "<br>";
     string += "Range: " + range + "<br>";
     string += "Interval: " + interval + "<br><br>";
     string += "Total f<sub>i</sub>x<sub>i</sub>: " + total_FiXi + "<br>";
-    string += "Arithmetic Mean: " + total_FiXi / total + "<br>";
+    string += "Arithmetic Mean: " + total_FiXi / total + "<br><br>";
     string += "Total f<sub>i</sub>log(x<sub>i</sub>): " + total_FiLogXi + "<br>";
-    string += "Geometric Mean: " + Math.exp(total_FiLogXi / total) + "<br>";
+    string += "Geometric Mean: " + Math.exp(total_FiLogXi / total) + "<br><br>";
     string += "Total f<sub>i</sub>/x<sub>i</sub>: " + total_Fi_BY_Xi + "<br>";
     string += "Harmonic Mean: " + total / total_Fi_BY_Xi + "<br>";
 
