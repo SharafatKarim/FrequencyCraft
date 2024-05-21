@@ -123,6 +123,14 @@ function generateTable(numArray) {
     }
     console.log("classCumulativeFrequency :\n", classCumulativeFrequency);
     let total = classCumulativeFrequency[numOfClass - 1];
+    
+    let median = 0;
+    for (let i = 0; i < numOfClass; i++) {
+        if (classCumulativeFrequency[i] >= total / 2) {
+            median = i;
+            break;
+        }
+    }
 
     // display table
     var freqTable = document.getElementById("freqTable");
@@ -204,13 +212,20 @@ function generateTable(numArray) {
     var string = "Total numbers (N): " + total + "<br>";
     string += "Number of classes: " + numOfClass + "<br>";
     string += "Range: " + range + "<br>";
-    string += "Interval: " + interval + "<br><br>";
+    string += "Interval or height (h): " + interval + "<br><br>";
+
     string += "Total f<sub>i</sub>x<sub>i</sub>: " + total_FiXi + "<br>";
     string += "Arithmetic Mean (AM): " + total_FiXi / total + "<br><br>";
     string += "Total f<sub>i</sub>log(x<sub>i</sub>): " + total_FiLogXi + "<br>";
     string += "Geometric Mean (GM): " + Math.exp(total_FiLogXi / total) + "<br><br>";
     string += "Total f<sub>i</sub>/x<sub>i</sub>: " + total_Fi_BY_Xi + "<br>";
-    string += "Harmonic Mean (HM): " + total / total_Fi_BY_Xi + "<br>";
+    string += "Harmonic Mean (HM): " + total / total_Fi_BY_Xi + "<br><br>";
+
+    string += "Median class: " + classInterval[median][0] + '-' + classInterval[median][1] + "<br>";
+    string += "Lower limit of the median class (L<sub>m</sub>): " + classInterval[median][0] + "<br>";
+    string += "Commulative frequency before median class (F<sub>m</sub>): " + (median > 0 ? classCumulativeFrequency[median - 1] : 0) + "<br>";
+    string += "Frequency of the median class (f<sub>m</sub>): " + classFrequency[median] + "<br>";
+    string += "Median: " + classInterval[median][0] + ' + (' + total / 2 + ' - ' + (median > 0 ? classCumulativeFrequency[median - 1] : 0) + ') * ' + interval + ' / ' + classFrequency[median] + " = " + (classInterval[median][0] + (total / 2 - (median > 0 ? classCumulativeFrequency[median - 1] : 0)) * interval / classFrequency[median]) + "<br>";
 
     paragraph.innerHTML = string;
     measurements.appendChild(paragraph);
