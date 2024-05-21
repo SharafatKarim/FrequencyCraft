@@ -154,10 +154,10 @@ function generateTable(numArray) {
     th.innerHTML = 'f<sub>i</sub>/x<sub>i</sub>';
     tr.appendChild(th);
     th = document.createElement('th');
-    th.innerHTML = 'Cumulative Frequency (ascending)';
+    th.innerHTML = 'CF (🞁)';
     tr.appendChild(th);
     th = document.createElement('th');
-    th.innerHTML = 'Cumulative Frequency (descending)';
+    th.innerHTML = 'CF (▼)';
     tr.appendChild(th);
     thead.appendChild(tr);
     table.appendChild(thead);
@@ -206,11 +206,11 @@ function generateTable(numArray) {
     string += "Range: " + range + "<br>";
     string += "Interval: " + interval + "<br><br>";
     string += "Total f<sub>i</sub>x<sub>i</sub>: " + total_FiXi + "<br>";
-    string += "Arithmetic Mean: " + total_FiXi / total + "<br><br>";
+    string += "Arithmetic Mean (AM): " + total_FiXi / total + "<br><br>";
     string += "Total f<sub>i</sub>log(x<sub>i</sub>): " + total_FiLogXi + "<br>";
-    string += "Geometric Mean: " + Math.exp(total_FiLogXi / total) + "<br><br>";
+    string += "Geometric Mean (GM): " + Math.exp(total_FiLogXi / total) + "<br><br>";
     string += "Total f<sub>i</sub>/x<sub>i</sub>: " + total_Fi_BY_Xi + "<br>";
-    string += "Harmonic Mean: " + total / total_Fi_BY_Xi + "<br>";
+    string += "Harmonic Mean (HM): " + total / total_Fi_BY_Xi + "<br>";
 
     paragraph.innerHTML = string;
     measurements.appendChild(paragraph);
