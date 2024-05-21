@@ -1,5 +1,7 @@
 import Chart from 'chart.js/auto'
 import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'mathjax/es5/tex-mml-chtml.js'
+import 'mathjax/es5/tex-svg.js'
 
 (function () {
     // clear the input field on load - SR TAMIM

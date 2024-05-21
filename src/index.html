@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frequency Craft | Frequency distribution and graph generator</title>
     <link href="style.css" rel="stylesheet">
+    <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
 </head>
 
 <body>
@@ -45,7 +46,21 @@
                     <div id="freqTable"></div>
                 </div>
             </div>
-            <div id="measurements"></div>
+
+            <div class="container text-center">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <div id="measurements"></div>
+                    </div>
+                    <div class="col initially-hidden">
+                        When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are $$x =
+                        {-b \pm
+                        \sqrt{b^2-4ac} \over 2a}.$$<br>
+                    </div>
+                </div>
+            </div>
+
+
 
             <label for="graphType" class="form-label initially-hidden">Select graph type:</label>
             <select class="form-select initially-hidden" id="graphType">
