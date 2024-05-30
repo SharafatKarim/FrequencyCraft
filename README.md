@@ -39,7 +39,7 @@ To run Frequency Craft locally, follow these steps:
 4. Start the development server:
 
     ```bash
-    npm run dev
+    npm start
     ```
 
 Check the console for the URL of the local server and open it in your browser.
