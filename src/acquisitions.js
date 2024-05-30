@@ -125,10 +125,23 @@ function generateTable(numArray) {
     let total = classCumulativeFrequency[numOfClass - 1];
     
     let median = 0;
+    let quartile1 = 0;
+    let mode = 0;
     for (let i = 0; i < numOfClass; i++) {
         if (classCumulativeFrequency[i] >= total / 2) {
             median = i;
             break;
+        }
+    }
+    for (let i = 0; i < numOfClass; i++) {
+        if (classCumulativeFrequency[i] >= total / 4) {
+            quartile1 = i;
+            break;
+        }
+    }
+    for (let i = 0; i < numOfClass; i++) {
+        if (classFrequency[i] > classFrequency[mode]) {
+            mode = i;
         }
     }
 
@@ -225,7 +238,20 @@ function generateTable(numArray) {
     string += "Lower limit of the median class (L<sub>m</sub>): " + classInterval[median][0] + "<br>";
     string += "Commulative frequency before median class (F<sub>m</sub>): " + (median > 0 ? classCumulativeFrequency[median - 1] : 0) + "<br>";
     string += "Frequency of the median class (f<sub>m</sub>): " + classFrequency[median] + "<br>";
-    string += "Median: " + classInterval[median][0] + ' + (' + total / 2 + ' - ' + (median > 0 ? classCumulativeFrequency[median - 1] : 0) + ') * ' + interval + ' / ' + classFrequency[median] + " = " + (classInterval[median][0] + (total / 2 - (median > 0 ? classCumulativeFrequency[median - 1] : 0)) * interval / classFrequency[median]) + "<br>";
+    string += "Median: " + classInterval[median][0] + ' + (' + total / 2 + ' - ' + (median > 0 ? classCumulativeFrequency[median - 1] : 0) + ') * ' + interval + ' / ' + classFrequency[median] + " = " + (classInterval[median][0] + (total / 2 - (median > 0 ? classCumulativeFrequency[median - 1] : 0)) * interval / classFrequency[median]) + "<br><br>";
+
+    string += "Quartile's observation: " + total / 4 + "<br>";
+    string += "Quartile 1 class: " + classInterval[quartile1][0] + '-' + classInterval[quartile1][1] + "<br>";
+    string += "Lower limit of the quartile 1 class (L<sub>Q1</sub>): " + classInterval[quartile1][0] + "<br>";
+    string += "Commulative frequency before quartile 1 class (F<sub>Q1</sub>): " + (quartile1 > 0 ? classCumulativeFrequency[quartile1 - 1] : 0) + "<br>";
+    string += "Frequency of the quartile 1 class (f<sub>Q1</sub>): " + classFrequency[quartile1] + "<br>";
+    string += "Quartile 1: " + classInterval[quartile1][0] + ' + (' + total / 4 + ' - ' + (quartile1 > 0 ? classCumulativeFrequency[quartile1 - 1] : 0) + ') * ' + interval + ' / ' + classFrequency[quartile1] + " = " + (classInterval[quartile1][0] + (total / 4 - (quartile1 > 0 ? classCumulativeFrequency[quartile1 - 1] : 0)) * interval / classFrequency[quartile1]) + "<br><br>";
+
+    string += "Mode class: " + classInterval[mode][0] + '-' + classInterval[mode][1] + "<br>";
+    string += "Frequency of the mode class (f<sub>o</sub>): " + classFrequency[mode] + "<br>";
+    string += "Frequency of the class before mode class (f<sub>1</sub>): " + (mode > 0 ? classFrequency[mode - 1] : 0) + "<br>";
+    string += "Frequency of the class after mode class (f<sub>2</sub>): " + (mode < numOfClass - 1 ? classFrequency[mode + 1] : 0) + "<br>";
+    string += "Mode: " + classInterval[mode][0] + ' + (' + classFrequency[mode] + ' - ' + (mode > 0 ? classFrequency[mode - 1] : 0) + ') * ' + interval + ' / ( 2 * ' + classFrequency[mode] + ' - ' + (mode > 0 ? classFrequency[mode - 1] : 0) + ' - ' + (mode < numOfClass - 1 ? classFrequency[mode + 1] : 0) + ') = ' + (classInterval[mode][0] + (classFrequency[mode] - (mode > 0 ? classFrequency[mode - 1] : 0)) * interval / (2 * classFrequency[mode] - (mode > 0 ? classFrequency[mode - 1] : 0) - (mode < numOfClass - 1 ? classFrequency[mode + 1] : 0))) + "<br>";
 
     paragraph.innerHTML = string;
     measurements.appendChild(paragraph);
