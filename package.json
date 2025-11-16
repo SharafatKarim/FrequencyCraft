@@ -11,7 +11,7 @@
         "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
     },
     "devDependencies": {
-        "parcel": "^2.6.2",
+        "parcel": "^2.16.1",
         "process": "^0.11.10",
         "shx": "^0.3.2"
     },
