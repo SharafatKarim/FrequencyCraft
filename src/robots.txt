@@ -1,0 +1,8 @@
+# Robots.txt for Frequency Craft
+# https://sharafat.is-a.dev/FrequencyCraft/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://sharafat.is-a.dev/FrequencyCraft/sitemap.xml
