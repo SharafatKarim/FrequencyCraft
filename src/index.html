@@ -4,21 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frequency Craft | Frequency distribution and graph generator</title>
+    <title>Frequency Craft | Frequency Distribution and Graph Generator</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Frequency Craft is a free web application that generates frequency distributions and interactive graphs. Input your data to calculate frequency distribution tables, mean, median, mode, quartiles, and visualize with bar charts, pie charts, and more.">
+    <meta name="keywords" content="frequency distribution, graph generator, statistics calculator, frequency table, bar chart, pie chart, mean calculator, median calculator, mode calculator, data visualization, statistics tool, math tool">
+    <meta name="author" content="Sharafat Karim">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sharafat.is-a.dev/FrequencyCraft/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sharafat.is-a.dev/FrequencyCraft/">
+    <meta property="og:title" content="Frequency Craft | Frequency Distribution and Graph Generator">
+    <meta property="og:description" content="Generate frequency distributions and interactive graphs. Calculate mean, median, mode, quartiles, and visualize data with various chart types.">
+    <meta property="og:image" content="https://socialify.git.ci/SharafatKarim/FrequencyCraft/image?description=1&descriptionEditable=Frequency%20Craft%20is%20a%20web%20application%20that%20allows%20users%20to%20generate%20frequency%20distributions%20and%20corresponding%20graphs%20based%20on%20input%20data.&font=Bitter&forks=1&issues=1&language=1&name=1&pattern=Formal%20Invitation&pulls=1&stargazers=1&theme=Auto">
+    <meta property="og:site_name" content="Frequency Craft">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://sharafat.is-a.dev/FrequencyCraft/">
+    <meta name="twitter:title" content="Frequency Craft | Frequency Distribution and Graph Generator">
+    <meta name="twitter:description" content="Generate frequency distributions and interactive graphs. Calculate mean, median, mode, quartiles, and visualize data with various chart types.">
+    <meta name="twitter:image" content="https://socialify.git.ci/SharafatKarim/FrequencyCraft/image?description=1&descriptionEditable=Frequency%20Craft%20is%20a%20web%20application%20that%20allows%20users%20to%20generate%20frequency%20distributions%20and%20corresponding%20graphs%20based%20on%20input%20data.&font=Bitter&forks=1&issues=1&language=1&name=1&pattern=Formal%20Invitation&pulls=1&stargazers=1&theme=Auto">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#198754">
+    <meta name="msapplication-TileColor" content="#198754">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Frequency Craft",
+        "description": "A web application that generates frequency distributions and interactive graphs based on input data. Calculate mean, median, mode, quartiles, and visualize with various chart types.",
+        "url": "https://sharafat.is-a.dev/FrequencyCraft/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "author": {
+            "@type": "Person",
+            "name": "Sharafat Karim",
+            "url": "https://github.com/SharafatKarim"
+        },
+        "license": "https://opensource.org/licenses/MIT",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Frequency distribution calculation",
+            "Bar chart generation",
+            "Line chart generation",
+            "Pie chart generation",
+            "Doughnut chart generation",
+            "Polar area chart generation",
+            "Radar chart generation",
+            "Mean calculation",
+            "Median calculation",
+            "Mode calculation",
+            "Quartile calculation"
+        ]
+    }
+    </script>
+    
     <link href="style.css" rel="stylesheet">
     <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Frequency Craft</a>
-            <!-- subtitle -->
-            <p class="navbar-text">Frequency distribution and graph generator</p>
-            <a href="https://github.com/SharafatKarim/FrequencyCraft" target="_blank"><button class="btn btn-outline-success"
-                    type="submit">GitHub repo</button></a>
-        </div>
-    </nav>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" role="navigation" aria-label="Main navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://sharafat.is-a.dev/FrequencyCraft/" aria-label="Frequency Craft Home">Frequency Craft</a>
+                <!-- subtitle -->
+                <p class="navbar-text">Frequency distribution and graph generator</p>
+                <a href="https://github.com/SharafatKarim/FrequencyCraft" target="_blank" rel="noopener noreferrer" aria-label="View source code on GitHub"><button class="btn btn-outline-success"
+                        type="button">GitHub repo</button></a>
+            </div>
+        </nav>
+    </header>
 
     <div class="container" id="horizontal-gap">
         <div class="row">
@@ -26,84 +98,91 @@
         </div>
     </div>
 
-    <div class="container">
-        <h2>Input Data</h2>
-        <div class="mb-3">
-            <label for="numInputArea" class="form-label">Enter your input frequencies:</label>
-            <textarea class="form-control" id="numInputArea" rows="4"
-                placeholder="An example 🎨&#10;2 3 1&#10;6 5 3&#10;2 1 9">
-            </textarea>
+    <main role="main">
+        <div class="container">
+            <section aria-labelledby="input-section-heading">
+                <h1 id="input-section-heading">Input Data</h1>
+                <div class="mb-3">
+                    <label for="numInputArea" class="form-label">Enter your input frequencies:</label>
+                    <textarea class="form-control" id="numInputArea" rows="4"
+                        placeholder="An example 🎨&#10;2 3 1&#10;6 5 3&#10;2 1 9" aria-describedby="inputHelp">
+                    </textarea>
+                    <small id="inputHelp" class="form-text text-muted">Enter numbers separated by spaces. Each row can contain multiple numbers.</small>
 
-            <button class="btn btn-success" id="myButton">Analyze data</button>
-            <button class="btn btn-danger" onclick="location.reload()">Reset</button>
-        </div>
-
-        <div class="container text-center">
-            <div class="row align-items-end">
-                <div class="col" id="parentAdjMatTable">
-                    <!-- --------- table 01 --------- -->
-                    <h2 class="initially-hidden">Frequency distribution table</h2>
-                    <div id="freqTable"></div>
+                    <button class="btn btn-success" id="myButton" aria-label="Analyze the input data">Analyze data</button>
+                    <button class="btn btn-danger" onclick="location.reload()" aria-label="Reset all data and clear results">Reset</button>
                 </div>
-            </div>
 
-            <div class="container text-center">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <div id="measurements"></div>
+                <div class="container text-center">
+                    <div class="row align-items-end">
+                        <div class="col" id="parentAdjMatTable">
+                            <!-- --------- table 01 --------- -->
+                            <h2 class="initially-hidden">Frequency distribution table</h2>
+                            <div id="freqTable" role="region" aria-label="Frequency distribution table results"></div>
+                        </div>
                     </div>
-                    <div class="col initially-hidden">
-                        Here, CF (🞁) = Cumulative Frequency (Ascending) and,<br> CF (▼) = Cumulative Frequency
-                        (descending). <br><br>
-                        Arithmetic mean (AM) = \( \frac{\sum f_i \times x_i}{N} \) <br>
-                        Geometry mean (GM) = \( \text{antilog} \left( \frac{\sum f_i \log(x_i)}{N} \right) \) <br>
-                        Harmonic mean (HM) = \( \frac{N}{\sum f_i / x_i} \) <br>
-                        For two non-zero positive observations, \( AM \geq GM \geq HM \) <br>
-                        and, \( (AM \times HM) = GM^2 \) <br><br>
-                        
-                        \( L_m = \text {Lower boundary of median class} \)<br>
-                        \( F_m = \text {Cumulative frequency of the class before median class} \)<br>
-                        \( f_m = \text {Frequency of median class} \)<br>
-                        \( h = \text {Class width or, interval} \)<br>
-                        Median = \( L_m + \left( \frac{\frac{N}{2} - F_m}{f_m} \right) \times h \) <br><br>
 
-                        \( i_{th} \) Quartiles = \( {i_{th} \times N} \over 4 \)th observed class ; divide the distribution into 4 equal parts. <br>
-                        \( Q_{i} = L_i + {{{iN \over 4}-F_i} \over {f_i}} \times h ; i = 1, 2, 3 \) <br>
-                        
-                        \( i_{th} \) Deciles = \( {i_{th} \times N} \over 10 \)th observed class ; likewise, 10 equal parts. <br>
-                        \( D_{j} = L_j + {{{jN \over 10}-F_j} \over {f_j}} \times h ; j = 1, 2,...9 \) <br>
-                        
-                        \( i_{th} \) Percentiles = \( {i_{th} \times N} \over 100 \)th observed class ; likewise, 100 equal parts. <br>
-                        \( P_{k} = L_k + {{{kN \over 100}-F_k} \over {f_k}} \times h ; k = 1, 2,...99 \) <br>
-                        Here, \( L_i \) = Lower boundary of the quantile class <br>
-                        \( F_i \) = Cumulative frequency of the class before quantile class <br>
-                        \( f_i \) = Frequency of quantile class <br><br>
+                    <div class="container text-center">
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <div id="measurements" role="region" aria-label="Statistical measurements"></div>
+                            </div>
+                            <div class="col initially-hidden">
+                                Here, CF (🞁) = Cumulative Frequency (Ascending) and,<br> CF (▼) = Cumulative Frequency
+                                (descending). <br><br>
+                                Arithmetic mean (AM) = \( \frac{\sum f_i \times x_i}{N} \) <br>
+                                Geometry mean (GM) = \( \text{antilog} \left( \frac{\sum f_i \log(x_i)}{N} \right) \) <br>
+                                Harmonic mean (HM) = \( \frac{N}{\sum f_i / x_i} \) <br>
+                                For two non-zero positive observations, \( AM \geq GM \geq HM \) <br>
+                                and, \( (AM \times HM) = GM^2 \) <br><br>
+                                
+                                \( L_m = \text {Lower boundary of median class} \)<br>
+                                \( F_m = \text {Cumulative frequency of the class before median class} \)<br>
+                                \( f_m = \text {Frequency of median class} \)<br>
+                                \( h = \text {Class width or, interval} \)<br>
+                                Median = \( L_m + \left( \frac{\frac{N}{2} - F_m}{f_m} \right) \times h \) <br><br>
 
-                        Modal class = Class with the highest frequency <br>
-                        Mode = \( L_m + \left( \frac{f_0 - f_{1}}{2f_0 - f_{1} - f_{2}} \right) \times h \) <br>
-                        where, \( L_m \) = Lower boundary of the modal class <br>
-                        <!-- \( f_0 \) = Frequency of the modal class <br>
-                        \( f_{1} \) = Frequency of the class before the modal class <br>
-                        \( f_{2} \) = Frequency of the class after the modal class <br> -->
+                                \( i_{th} \) Quartiles = \( {i_{th} \times N} \over 4 \)th observed class ; divide the distribution into 4 equal parts. <br>
+                                \( Q_{i} = L_i + {{{iN \over 4}-F_i} \over {f_i}} \times h ; i = 1, 2, 3 \) <br>
+                                
+                                \( i_{th} \) Deciles = \( {i_{th} \times N} \over 10 \)th observed class ; likewise, 10 equal parts. <br>
+                                \( D_{j} = L_j + {{{jN \over 10}-F_j} \over {f_j}} \times h ; j = 1, 2,...9 \) <br>
+                                
+                                \( i_{th} \) Percentiles = \( {i_{th} \times N} \over 100 \)th observed class ; likewise, 100 equal parts. <br>
+                                \( P_{k} = L_k + {{{kN \over 100}-F_k} \over {f_k}} \times h ; k = 1, 2,...99 \) <br>
+                                Here, \( L_i \) = Lower boundary of the quantile class <br>
+                                \( F_i \) = Cumulative frequency of the class before quantile class <br>
+                                \( f_i \) = Frequency of quantile class <br><br>
 
+                                Modal class = Class with the highest frequency <br>
+                                Mode = \( L_m + \left( \frac{f_0 - f_{1}}{2f_0 - f_{1} - f_{2}} \right) \times h \) <br>
+                                where, \( L_m \) = Lower boundary of the modal class <br>
+                                <!-- \( f_0 \) = Frequency of the modal class <br>
+                                \( f_{1} \) = Frequency of the class before the modal class <br>
+                                \( f_{2} \) = Frequency of the class after the modal class <br> -->
+
+                            </div>
+                        </div>
                     </div>
+
+
+
+                    <label for="graphType" class="form-label initially-hidden">Select graph type:</label>
+                    <select class="form-select initially-hidden" id="graphType" aria-label="Select the type of graph to display">
+                        <option value="bar">Bar Chart</option>
+                        <option value="line">Line Chart</option>
+                        <option value="pie">Pie Chart</option>
+                        <option value="doughnut">Doughnut Chart</option>
+                        <option value="polarArea">Polar Area Chart</option>
+                        <option value="radar">Radar Chart</option>
+                    </select>
                 </div>
-            </div>
-
-
-
-            <label for="graphType" class="form-label initially-hidden">Select graph type:</label>
-            <select class="form-select initially-hidden" id="graphType">
-                <option value="bar">Bar Chart</option>
-                <option value="line">Line Chart</option>
-                <option value="pie">Pie Chart</option>
-                <option value="doughnut">Doughnut Chart</option>
-                <option value="polarArea">Polar Area Chart</option>
-                <option value="radar">Radar Chart</option>
-            </select>
+                <div class="container-sm">
+                    <canvas id="acquisitions" role="img" aria-label="Frequency distribution chart visualization"></canvas>
+                </div>
+            </section>
         </div>
-        <div class="container-sm"><canvas id="acquisitions"></canvas></div>
-    </div>
+    </main>
 
     <!-- ___              _                
     /'___)            ( )_              

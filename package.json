@@ -6,11 +6,15 @@
         "start": "parcel ./src/index.html",
         "prebuild-dev": "shx rm -rf dist/*",
         "build-dev": "parcel build ./src/index.html --no-optimize --public-url ./",
+        "postbuild-dev": "shx cp src/robots.txt src/sitemap.xml dist/",
         "prebuild": "shx rm -rf dist/*",
         "build": "parcel build ./src/index.html --public-url ./",
+        "postbuild": "shx cp src/robots.txt src/sitemap.xml dist/",
         "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
     },
     "devDependencies": {
+        "@parcel/packager-raw-url": "^2.16.1",
+        "@parcel/transformer-jsonld": "^2.16.1",
         "parcel": "^2.16.1",
         "process": "^0.11.10",
         "shx": "^0.3.2"
